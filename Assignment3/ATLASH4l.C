@@ -32,7 +32,6 @@ void ATLASH4l(){
     x.setBins(10);
     // mind the path!!
     RooDataSet data = *RooDataSet::read("/home/hamza/statistical-data-analysis/data/higgs_4l.dat", x, "v");
-    // Ensure a stable name in the workspace
     data.SetName("data");
 
     // model: 2 degree polynomial background + Crystal Ball signal
@@ -85,7 +84,6 @@ void ATLASH4l(){
     
     w.defineSet("nuisParams", "nbkg,a1,a2,mass,width,alpha_param,n");
     mc.SetNuisanceParameters(*w.set("nuisParams"));
-    // Keep shape parameters free to be profiled; set constants only if intended
 
     w.import(mc);
 
